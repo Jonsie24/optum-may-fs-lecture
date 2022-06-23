@@ -18,10 +18,13 @@ class FizzBuzzControllerTest {
     int port;
 
     @Test
-    void fizzbuzz() {
+    void itShouldCallFizzBuzzAndReturnItsValue() {
         final RestTemplate rest = new RestTemplate();
         final ResponseEntity<String> actual = rest.getForEntity("http://localhost:" + port + "/fizzbuzz?input=4", String.class);
         assertEquals(HttpStatus.OK, actual.getStatusCode());
         assertEquals("4", actual.getBody());
+        final ResponseEntity<String> actual2 = rest.getForEntity("http://localhost:" + port + "/fizzbuzz?input=7", String.class);
+        assertEquals(HttpStatus.OK, actual.getStatusCode());
+        assertEquals("7", actual2.getBody());
     }
 }

@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class FizzBuzzController {
     @GetMapping("/fizzbuzz")
     String fizzbuzz(@RequestParam int input) {
-        return null;
+        return FizzBuzz.fizzbuzz(input);
     }
 }
