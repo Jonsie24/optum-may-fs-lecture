@@ -8,8 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class FizzBuzzController {
+    FizzBuzz fizzBuzz;
+
+    // Production
+    FizzBuzzController() {
+        fizzBuzz = new FizzBuzz();
+    }
+
+    // Testing
+    void setFizzBuzz(FizzBuzz fizzBuzz) {
+        this.fizzBuzz = fizzBuzz;
+    }
+
     @GetMapping("/fizzbuzz")
     String fizzbuzz(@RequestParam int input) {
-        return FizzBuzz.fizzbuzz(input);
+        return fizzBuzz.fizzbuzz(input);
     }
 }

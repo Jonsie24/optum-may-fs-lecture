@@ -24,33 +24,33 @@ class FizzBuzzTest {
     // otherwise output the number converted to a string i.e 4 -> "4"
     @Test
     void itShouldOutputAStringVersionOfTheNumberInput() {
-        final String actual = FizzBuzz.fizzbuzz(4);
+        final String actual = new FizzBuzz().fizzbuzz(4);
         assertEquals("4", actual);
-        final String actual7 = FizzBuzz.fizzbuzz(7);
+        final String actual7 = new FizzBuzz().fizzbuzz(7);
         assertEquals("7", actual7);
     }
 
     @Test
     void itShouldOutputFizzWhenTheInputIsAMultipleOf3() {
-        final String actual = FizzBuzz.fizzbuzz(3);
+        final String actual = new FizzBuzz().fizzbuzz(3);
         assertEquals("Fizz", actual);
-        final String actual7 = FizzBuzz.fizzbuzz(6);
+        final String actual7 = new FizzBuzz().fizzbuzz(6);
         assertEquals("Fizz", actual7);
     }
 
     @Test
     void itShouldOutputBuzzWhenTheInputIsAMultipleOf5() {
-        final String actual = FizzBuzz.fizzbuzz(5);
+        final String actual = new FizzBuzz().fizzbuzz(5);
         assertEquals("Buzz", actual);
-        final String actual7 = FizzBuzz.fizzbuzz(10);
+        final String actual7 = new FizzBuzz().fizzbuzz(10);
         assertEquals("Buzz", actual7);
     }
 
     @Test
     void itShouldOutputFizzBuzzWhenTheInputIsAMultipleOf3and5() {
-        final String actual = FizzBuzz.fizzbuzz(15);
+        final String actual = new FizzBuzz().fizzbuzz(15);
         assertEquals("FizzBuzz", actual);
-        final String actual7 = FizzBuzz.fizzbuzz(30);
+        final String actual7 = new FizzBuzz().fizzbuzz(30);
         assertEquals("FizzBuzz", actual7);
     }
 }
