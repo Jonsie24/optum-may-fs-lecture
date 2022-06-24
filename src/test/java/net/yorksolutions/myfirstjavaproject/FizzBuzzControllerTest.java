@@ -24,21 +24,38 @@ class FizzBuzzControllerTest {
     //     mock - fake something
     // Mockito will initialize this field for us
     @Mock
-    FizzBuzz butterfly; // = new FizzBuzz()
+    FizzBuzz mockFizzBuzz; // = new FizzBuzz()
 
     // Spring, please give me object that you created of type: FizzBuzzController
     @Autowired
     FizzBuzzController controller;
 
+    private static class GenericTest<T> {
+        final T object;
+
+        private GenericTest(T object) {
+            this.object = object;
+        }
+    }
+
     @Test
     void itShouldCallFizzBuzzAndReturnItsValue() {
+        final GenericTest<String> g = new GenericTest<String>("hello");
+        System.out.println(g.object); // hello
+        final var i = new GenericTest<Integer>(5);
+        System.out.println(i.object);// 5
         // If anywhere in the app, fizzbuzz is called on the butterfly object, with an input of 4, then
         //    simply return the string "it was called"
-        when(butterfly.fizzbuzz(4)).thenReturn("it was called");
-        controller.setFizzBuzz(butterfly);
+        final var m = mockFizzBuzz.fizzbuzz(4);
+        final var w = when(m);
+        w.thenReturn("it was called");
+        controller.setFizzBuzz(mockFizzBuzz);
         final RestTemplate rest = new RestTemplate();
         final ResponseEntity<String> actual = rest.getForEntity("http://localhost:" + port + "/fizzbuzz?input=4", String.class);
         assertEquals(HttpStatus.OK, actual.getStatusCode());
         assertEquals("it was called", actual.getBody());
+
+        final String body = rest.getForObject("http://localhost:" + port + "/fizzbuzz?input=4", String.class);
+        assertEquals("it was called", body);
     }
 }

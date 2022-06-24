@@ -16,8 +16,8 @@ public class FizzBuzzController {
     }
 
     // Testing
-    void setFizzBuzz(FizzBuzz fizzBuzz) {
-        this.fizzBuzz = fizzBuzz;
+    void setFizzBuzz(FizzBuzz mockFizzBuzz) {
+        this.fizzBuzz = mockFizzBuzz;
     }
 
     @GetMapping("/fizzbuzz")
