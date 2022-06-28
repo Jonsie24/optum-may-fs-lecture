@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 // null - black
 // void - the absence of any color
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@SpringBootApplication//(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class MyFirstJavaProjectApplication {
 
     public int p;
